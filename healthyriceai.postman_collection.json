@@ -1,0 +1,60 @@
+{
+  "info": { "name": "healthyriceAI API", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json" },
+  "variable": [
+    { "key": "base_url", "value": "http://127.0.0.1:8000/api" },
+    { "key": "access_token", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"full_name\": \"Petani Test\",\n  \"email\": \"petani@test.com\",\n  \"password\": \"padihijau123\",\n  \"confirm_password\": \"padihijau123\"\n}" },
+        "url": "{{base_url}}/auth/register/"
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"email\": \"petani@test.com\",\n  \"password\": \"padihijau123\"\n}" },
+        "url": "{{base_url}}/auth/login/"
+      }
+    },
+    {
+      "name": "List Diseases",
+      "request": { "method": "GET", "url": "{{base_url}}/diseases/" }
+    },
+    {
+      "name": "Disease Detail",
+      "request": { "method": "GET", "url": "{{base_url}}/diseases/tungro/" }
+    },
+    {
+      "name": "Scan Photo (create detection)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+        "body": { "mode": "formdata", "formdata": [{ "key": "image", "type": "file", "src": "" }] },
+        "url": "{{base_url}}/detections/"
+      }
+    },
+    {
+      "name": "History",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+        "url": "{{base_url}}/detections/"
+      }
+    },
+    {
+      "name": "Delete Detection",
+      "request": {
+        "method": "DELETE",
+        "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+        "url": "{{base_url}}/detections/1/"
+      }
+    }
+  ]
+}
