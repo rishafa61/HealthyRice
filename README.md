@@ -1,3 +1,5 @@
+https://healthyrice-wyjl.vercel.app
+
 # Quick start
 ```bash```
 ```py -m venv venv```
